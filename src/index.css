@@ -1,0 +1,21 @@
+/* index.css */
+
+/* 1) Reset global para todos los elementos */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2) Asegúrate de que html, body y #root (o #root si es el id) ocupen el 100% de la ventana */
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 3) Tipografía base opcional */
+body {
+  font-family: sans-serif;
+}
