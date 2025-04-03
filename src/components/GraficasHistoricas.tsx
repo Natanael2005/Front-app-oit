@@ -383,7 +383,7 @@ const GraficasHistoricas: React.FC = () => {
 
           {/* Segunda mitad - Análisis Multivariable (Radar) */}
           <div className="graficas-grid-item">
-            <h3 className="graficas-sectionTitle">Histórico - Análisis Multivariable (Radar)</h3>
+            <h3 className="graficas-sectionTitle">Histórico - Análisis Multivariable (5 Registros)</h3>
             <p className="graficas-descripcion">Muestra la relación entre temperatura, humedad e intensidad solar.</p>
             <div className="grafica-wrapper grafica-wrapper-half">
               <Radar data={radarData} options={radarOptions} />
