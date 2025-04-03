@@ -177,7 +177,7 @@ body {
   background-color: var(--color-card);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
-  padding: 1.5rem;
+  padding: 2rem;
   border: 1px solid var(--color-border);
   margin-bottom: 1.5rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -271,175 +271,192 @@ body {
   border-left: 2px solid var(--color-primary);
 }
 
+/* Ajustar el grid del dashboard para dar más espacio al mapa */
 .dashboard-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+  /* Proporción 1.3fr para el mapa, 1fr para las tarjetas de clima */
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2rem;
 }
 
-@media (max-width: 1024px) {
-  .dashboard-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* WeatherInfo - Reducir tamaño de las tarjetas */
+/* WeatherInfo - Aumentar tamaño de las tarjetas */
 .weather-container {
+  /* Organiza las tarjetas en una cuadrícula de 2x2 */
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  gap: 0.5rem;
-  padding: 0;
+  /* Espacio entre tarjetas */
+  gap: 1.5rem;
+  /* Padding interno del contenedor */
+  padding: 1rem;
 }
 
 .weather-card {
+  /* Centra el contenido */
   text-align: center;
-  padding: 1.4rem;
+  /* Espacio interno adecuado */
+  padding: 2rem 1.5rem;
+  /* Bordes redondeados */
   border-radius: var(--radius);
+  /* Fondo blanco */
   background-color: var(--color-card);
-  box-shadow: var(--shadow-sm);
+  /* Sombra ligera */
+  box-shadow: var(--shadow);
+  /* Transición suave para efectos hover */
   transition: var(--transition);
+  /* Borde para definir límites */
   border: 1px solid var(--color-border);
+  /* Organiza el contenido en columna centrada */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  /* Asegura que todas las tarjetas tengan la misma altura */
   height: 100%;
 }
 
-.weather-card:nth-child(1) {
-  background: linear-gradient(135deg, #fff, #f3f4f6);
-  border-color: #d1d5db;
-}
-
-.weather-card:nth-child(2) {
-  background: linear-gradient(135deg, #fff, #f1f5f9);
-  border-color: #cbd5e1;
-}
-
-.weather-card:nth-child(3) {
-  background: linear-gradient(135deg, #fff, #f8fafc);
-  border-color: #e2e8f0;
-}
-
-.weather-card:nth-child(4) {
-  background: linear-gradient(135deg, #fff, #f9fafb);
-  border-color: #f1f5f9;
-}
-
-.weather-card:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow);
-}
-
 .weather-icon {
-  font-size: 1.75rem;
-  margin-bottom: 0.4rem;
+  /* Tamaño del icono */
+  font-size: 2.5rem;
+  /* Espacio debajo del icono */
+  margin-bottom: 0.75rem;
+  /* Color del icono */
   color: var(--color-primary);
 }
 
-.weather-card:nth-child(1) .weather-icon {
-  color: #4b5563;
-}
-
-.weather-card:nth-child(2) .weather-icon {
-  color: #374151;
-}
-
-.weather-card:nth-child(3) .weather-icon {
-  color: #1f2937;
-}
-
-.weather-card:nth-child(4) .weather-icon {
-  color: #111827;
-}
-
 .weather-card h3 {
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 600;
-  margin-bottom: 0.3rem;
+  margin-bottom: 0.5rem;
   color: var(--color-text);
 }
 
 .weather-value {
-  font-size: 1.25rem;
+  font-size: 1.75rem;
   font-weight: 700;
-  margin-top: 0.3rem;
+  margin-top: 0.5rem;
   color: var(--color-text);
 }
 
-/* MapView - Reducir altura del mapa */
-.map-container {
-  height: 300px;
+/* Modificaciones para hacer el mapa más grande */
+
+/* Contenedor del mapa */
+.map-wrapper {
   width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+/* Hacer que el mapa ocupe todo el espacio disponible */
+.map-container {
+  /* Altura del mapa - Aumentada pero no excesivamente */
+  height: 500px !important;
+  width: 100%;
+  /* Bordes redondeados para coincidir con el diseño general */
   border-radius: var(--radius);
   overflow: hidden;
+  /* Sombra ligera para dar profundidad */
   box-shadow: var(--shadow-sm);
+  /* Borde para definir los límites del mapa */
   border: 1px solid var(--color-border);
+  z-index: 1;
 }
+
+/* Ajustar el tamaño de la card que contiene el mapa */
+.dashboard-grid .card:first-child {
+  /* Elimina el padding interno para que el mapa ocupe todo el espacio */
+  padding: 1rem;
+  overflow: hidden;
+}
+
+/* MapView - Reducir altura del mapa */
 
 /* Estilos para el popup del mapa */
 .leaflet-popup-content {
+  /* Margen interno del popup */
   margin: 10px 12px;
+  /* Altura de línea para mejor legibilidad */
   line-height: 1.5;
+  /* Tamaño de texto adecuado */
   font-size: 0.9rem;
+  /* Ancho mínimo para que el contenido no se vea apretado */
   min-width: 200px;
 }
 
+/* Mejorar el estilo del popup */
+.custom-popup .leaflet-popup-content {
+  margin: 12px 15px;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  min-width: 220px;
+}
+
 .popup-title {
+  /* Espacio debajo del título */
   margin-bottom: 10px;
+  /* Borde inferior para separar del contenido */
   border-bottom: 1px solid var(--color-border);
   padding-bottom: 6px;
 }
 
+/* Estilo para el nombre de la parcela */
 .popup-title strong {
   font-size: 1.1rem;
   color: var(--color-primary-dark);
   display: block;
 }
 
+/* Contenedor de información del popup */
 .popup-content {
+  /* Organiza los elementos en columna */
   display: flex;
   flex-direction: column;
+  /* Espacio entre elementos */
   gap: 6px;
 }
 
+/* Cada elemento de información en el popup */
 .popup-item {
+  /* Alinea el icono con el texto */
   display: flex;
   align-items: center;
+  /* Espacio entre icono y texto */
   gap: 8px;
   padding: 2px 0;
 }
 
+/* Icono dentro del popup */
 .popup-icon {
+  /* Evita que el icono se estire */
   flex-shrink: 0;
 }
 
+/* Colores específicos para cada tipo de icono */
 .location-icon {
-  color: #4b5563;
+  color: #4b5563; /* Gris oscuro */
 }
 
 .crop-icon {
-  color: #10b981;
+  color: #10b981; /* Verde */
 }
 
 .user-icon {
-  color: #6366f1;
+  color: #6366f1; /* Índigo */
 }
 
 .temp-icon {
-  color: #ef4444;
+  color: #ef4444; /* Rojo */
 }
 
 .humidity-icon {
-  color: #3b82f6;
+  color: #3b82f6; /* Azul */
 }
 
 .rain-icon {
-  color: #6b7280;
+  color: #6b7280; /* Gris */
 }
 
 .sun-icon {
-  color: #f59e0b;
+  color: #f59e0b; /* Ámbar */
 }
 
 .leaflet-popup-content br {
@@ -800,6 +817,19 @@ body {
 
   .weather-container {
     grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  .weather-card {
+    padding: 1.5rem 1rem;
+  }
+
+  .weather-icon {
+    font-size: 2rem;
+  }
+
+  .weather-value {
+    font-size: 1.5rem;
   }
 
   .dashboard-grid {
@@ -1858,5 +1888,58 @@ body {
   border-radius: 50%;
   border-top-color: transparent;
   animation: spin 0.8s linear infinite;
+}
+
+/* Responsive para pantallas más pequeñas */
+@media (max-width: 1024px) {
+  /* Cambia a una columna en pantallas más pequeñas */
+  .dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduce la altura del mapa */
+  .map-container {
+    height: 450px !important;
+  }
+
+  /* Mantiene las tarjetas de clima en 2 columnas */
+  .weather-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  /* Mantiene las tarjetas de clima en 2 columnas pero reduce el espacio */
+  .weather-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+  }
+
+  /* Reduce el padding de las tarjetas */
+  .weather-card {
+    padding: 1.5rem 1rem;
+  }
+
+  /* Reduce el tamaño de los iconos */
+  .weather-icon {
+    font-size: 2rem;
+  }
+
+  /* Reduce el tamaño del valor */
+  .weather-value {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Cambia a una columna para las tarjetas de clima */
+  .weather-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* Reduce aún más la altura del mapa */
+  .map-container {
+    height: 400px !important;
+  }
 }
 

@@ -1,22 +1,17 @@
-import React from "react";
-import {
-  WiThermometer,
-  WiHumidity,
-  WiRain,
-  WiDaySunny,
-} from "react-icons/wi";
+import type React from "react"
+import { WiThermometer, WiHumidity, WiRain, WiDaySunny } from "react-icons/wi"
 
 interface Props {
   clima: {
-    temp: number;
-    humidity: number;
-    rain: number;
-    sun: number;
-  } | null;
+    temp: number
+    humidity: number
+    rain: number
+    sun: number
+  } | null
 }
 
 const WeatherInfo: React.FC<Props> = ({ clima }) => {
-  if (!clima) return <p>Cargando clima...</p>;
+  if (!clima) return <p>Cargando clima...</p>
 
   return (
     <div className="weather-container">
@@ -41,7 +36,8 @@ const WeatherInfo: React.FC<Props> = ({ clima }) => {
         <p className="weather-value">{clima.sun} lux</p>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default WeatherInfo;
+export default WeatherInfo
+
